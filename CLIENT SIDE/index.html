@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shooter</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="welcome">
+        <img src="Sprites/shooter.png" alt="" class="logo" />
+        <input
+          type="text"
+          placeholder="Input username"
+          name="name"
+          id="input"
+          required
+        />
+        <select name="level" id="level" required>
+          <option value="" disabled selected>Select Level</option>
+          <option value="30">Easy</option>
+          <option value="20">Medium</option>
+          <option value="15">Hard</option>
+        </select>
+        <div class="choices">
+          <label class="gun1">
+            <img src="Sprites/gun1.png" alt="" />
+            <input type="radio" name="gun" id="gun1" value="true" required />
+          </label>
+          <label class="gun2">
+            <img src="Sprites/gun2.png" alt="" />
+            <input type="radio" name="gun" id="gun2" value="false" required />
+          </label>
+        </div>
+        <div class="choices">
+          <div class="target1">
+            <img src="Sprites/target1.png" alt="" />
+            <input type="radio" name="target" value="1" id="target1" required />
+          </div>
+          <div class="target2">
+            <img src="Sprites/target2.png" alt="" />
+            <input type="radio" name="target" value="2" id="target2" required />
+          </div>
+          <div class="target3">
+            <img src="Sprites/target3.png" alt="" />
+            <input type="radio" name="target" value="3" id="target3" required />
+          </div>
+        </div>
+
+       
+        <div class="choices">
+          <button class="play" onclick="play()" id="playButton" disabled>
+            Play Game
+          </button>
+          <button class="instruction" onclick="showInstruction()">
+            Instruction
+          </button>
+        </div>
+
+        <div class="show-error hide">
+          <small style="color: red;">Fill all the form before play the game!</small>
+        </div>
+
+      </div>
+      <div class="instructBoard hide">
+        <div class="text-plain">
+          <h2>How to play game</h2>
+          <p>1. Input username</p>
+          <p>2. Point the pointer at the target</p>
+          <p>3. Click to shoot</p>
+          <p>4. Get as many points as possible</p>
+          <p>5. Enjoy!</p>
+        </div>
+        <div
+          class="close"
+          onclick="document.querySelector('.instructBoard').classList.add('hide');"
+        >
+          ❌
+        </div>
+      </div>
+    </div>
+    <div class="game hide">
+      <div class="bg">
+        <div class="alert hide" id="pause">
+          <h2>Game Paused</h2>
+          <button onclick="togglePause()">Continue</button>
+        </div>
+      </div>
+      <div class="bg">
+        <div class="alert hide" id="gameOver">
+          <h2>Game Over</h2>
+          <p id="playerNameOver">Name</p>
+          <p id="scoreOver">Score</p>
+          <div class="choices">
+            <button onclick="main()">Restart</button>
+            <button id="saveScoreBtn">Save Score</button>
+          </div>
+        </div>
+      </div>
+      <div class="board">
+        <div class="header">
+          <span><b id="playerTxt">Player Name</b></span>
+          <span><b id="scoreTxt">Score: 0</b></span>
+          <span><b id="timeTxt">Time: 30</b></span>
+        </div>
+        <h1 class="count">3</h1>
+        <img src="Sprites/pointer.png" alt="" class="pointer" />
+        <img src="Sprites/gun1.png" alt=" " class="gun" />
+      </div>
+      <div class="leaderboard">
+        <h2>Leaderboard</h2>
+        <label for="sort"
+          >
+          <select name="sort" id="sort">
+            <option selected disabled>Sort By</option>
+            <option value="time">Last Match</option>
+            <option value="score">Score</option>
+          </select>
+        </label>
+        <div class="body" id="leaderboardSection" style="margin-top: 20px;"></div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

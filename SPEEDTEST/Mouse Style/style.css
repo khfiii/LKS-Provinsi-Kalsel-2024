@@ -1,0 +1,36 @@
+html {
+    cursor: none; /* Hapus kursor default untuk seluruh dokumen */
+}
+
+.custom-cursor {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+}
+
+.pulse {
+    width: 45px; 
+    height: 45px;
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(52, 51, 51, 0.5); /* Warna lingkaran dengan transparansi */
+    transform: scale(0);
+    animation: pulse 0.3s linear;
+    pointer-events: none;
+    z-index: 9998;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.5);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated rating star</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./app.css">
+    <style>
+        :root {
+            --body-bg: #1c2451;
+            --txt-color: #f1f1f1;
+            --star-color: #d4d4d4;
+            --yellow: #ffeb3b;
+        }
+        
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 6rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--txt-color);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .rating-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .rating-label {
+            margin-right: 2rem;
+        }
+        
+        .rating-star {
+            position: relative;
+            display: flex;
+            margin: 10px 0;
+            flex-direction: row-reverse;
+        }
+        
+        .rating-star input {
+            position: relative;
+            width: 20px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            appearance: none;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .rating-star input::before {
+            content: '\eeb8';
+            position: absolute;
+            font-family: boxicons;
+            font-size: 34px;
+            position: absolute;
+            left: 4px;
+            color: var(--star-color);
+            transition: all .3s;
+        }
+        
+        .rating-star input:nth-child(2n + 1)::before {
+            right: 4px;
+            left: initial;
+        }
+        
+        .rating-star input:hover ~ input::before,
+        .rating-star input:hover::before,
+        .rating-star input:checked ~ input::before,
+        .rating-star input:checked::before {
+            color: var(--yellow);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+            <div class="rating-star">
+                <input type="radio" name="html">
+                <input type="radio" name="html">
+                <input type="radio" name="html">
+                <input type="radio" name="html">
+                <input type="radio" name="html">
+                <input type="radio" name="html">
+                <input type="radio" name="html">
+                <input type="radio" name="html">
+                <input type="radio" name="html">
+                <input type="radio" name="html">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

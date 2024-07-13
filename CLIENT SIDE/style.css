@@ -1,0 +1,315 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+  width: 100%;
+  height: 600px;
+  max-width: 1000px;
+  border: 1px solid black;
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  gap: 4rem;
+}
+
+.welcome img {
+  width: 75px;
+}
+
+#level{
+  width: 250px;
+  padding: 10px;
+  border-radius: 5px;
+  background: rgb(243, 239, 239);
+  color: gray; 
+  border: gray 1px solid;
+}
+
+#sort{
+  width: 210px;
+  padding: 10px;
+  color: brown;
+  font-weight: bold;
+  border-radius: 5px;
+  background: rgb(243, 239, 239);
+  color: gray; 
+  border: gray 1px solid;
+}
+
+#input{
+  width: 250px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 5px;
+  background: rgb(243, 239, 239); 
+  color: gray;
+  border: gray 1px solid;
+  padding-bottom: 5px;
+}
+
+.container .logo {
+  width: 200px;
+}
+
+.logo{
+  width: 180px !important;
+}
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.game {
+  position: relative;
+  border: 1px solid red;
+  width: 100%;
+  max-width: 1000px;
+  height: 600px;
+  display: grid;
+  grid-template-columns: 750px auto;
+  border: 2px solid black;
+}
+
+.leaderboard {
+  padding: 1rem;
+  width: 100%;
+  background: black;
+  color: silver;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  gap: 0.75rem;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.item {
+  display: grid;
+  grid-template: 1fr/2fr 1fr;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+ .detail {
+  width: 120px;
+}
+
+.board {
+  background-image: url("Sprites/background.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid green;
+}
+
+.board > * {
+  transition: opacity 0.2s ease;
+  position: absolute;
+}
+.target {
+  transition: all 0.2s ease-in;
+  opacity: 1;
+}
+.remove {
+  opacity: 0;
+}
+.pointer,
+.gun {
+  transition: transform 0.2s ease;
+  z-index: 999;
+}
+.gun {
+  width: 200px;
+}
+.header {
+  z-index: 9999;
+  width: 100%;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.35);
+  color: white;
+  font-size: 1.5rem;
+  display: flex;
+  padding: 0 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.up {
+  transform: translateY(200px);
+}
+.count {
+  left: 50%;
+  top: 50%;
+  z-index: 9999;
+  font-size: 4rem;
+}
+
+.bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.575);
+  z-index: 99999;
+}
+.bg:has(.hide) {
+  display: none;
+}
+
+.choices{
+  display: flex;
+  gap: 15px; 
+}
+
+.target1, .target2, .target3, .gun1, .gun2{
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+} 
+
+.alert {
+  background: white;
+  display: flex;
+  padding: 4rem;
+  border-radius: 1rem;
+  border: 2px solid black;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#btn-board{
+  width: 120px;
+  background: rgb(229, 229, 71);
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+
+
+.close {
+  position: absolute;
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
+  right: 1rem;
+  top: 1rem;
+  padding-top: 5px;
+}
+.hide {
+  display: none !important;
+}
+.instructBoard {
+  border-radius: 5px;
+  position: relative;
+  height: 500px;
+  width: 400px;
+  background-color: rgb(68, 41, 41);
+  animation-name: show;
+  animation-duration: 1s;
+}
+
+.text-plain{
+  padding: 20px 20px; 
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+button{
+  width: 120px;
+  padding: 10px; 
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+
+#playButton{
+  background-color: rgb(59, 180, 59);
+  color: white; 
+}
+
+.main-menu{
+ width: max-content;
+ border: 1px solid red;
+}
+
+.instruction{
+  background-color:rgb(68, 41, 41); 
+  color: white;
+}
+
+.board-item{
+  display: flex;
+  gap: 5px; 
+}
+
+.user-text{
+  flex-basis: 90%;
+}
+.btn-text{
+  flex-basis: 10%;
+}
+
+#detail {
+  height: 100%; 
+  background-color: brown;
+  color: white;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0.1;
+  }
+  12.5% {
+    opacity: 0.25;
+  }
+  25% {
+    opacity: 0.4;
+  }
+  37.5% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  62.5% {
+    opacity: 0.85;
+  }
+  75% {
+    opacity: 0.9;
+  }
+  87.5% {
+    opacity: 0.95;
+  }
+  100% {
+    opacity: 1;
+  }
+}

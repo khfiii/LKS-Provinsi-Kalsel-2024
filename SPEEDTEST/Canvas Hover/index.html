@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas Hover</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <script>
+      const canvas = document.getElementById("canvas");
+      canvas.width = 400;
+      canvas.height = 400;
+      const ctx = canvas.getContext("2d");
+      canvas.style.border = "1px solid black";
+
+      const mouse = {
+        x: undefined,
+        y: undefined,
+      };
+
+      const ball = {
+        x: canvas.width / 2,
+        y: canvas.height / 2,
+        radius: 30,
+      };
+
+      function drawBall() {
+        ctx.fillStyle = "green";
+        ctx.strokeStyle = "red";
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+      }
+
+      canvas.addEventListener("mousemove", function (event) {
+        mouse.x = event.clientX - canvas.offsetLeft;
+        mouse.y = event.clientY - canvas.offsetTop;
+      });
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        if (mouse.x !== undefined && mouse.y !== undefined) {
+          ball.x += (mouse.x - ball.x) * 0.1;
+          ball.y += (mouse.y - ball.y) * 0.1;
+        }
+
+        drawBall();
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    </script>
+  </body>
+</html>
